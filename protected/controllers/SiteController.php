@@ -190,6 +190,30 @@ class SiteController extends Controller {
                 $modelUsuarioRol->attributes = $dataUsuarioRol;
                         $modelUsuarioRol->save();
 
+                /*
+                 * Envio de correo
+                 */
+                $admin = "select email from usuario where idusuario=1";
+                $emailAdmin = Yii::app()->db->createCommand($admin)->queryAll();
+                $enviar = new EnvioEmail();
+                // Parael usuario
+                    $enviar->enaviar(
+                        array(Yii::app()->params['adminEmail'], Yii::app()->name), 
+                        array($_POST['Cliente']['correo'], $_POST['Cliente']['nombres']), 
+                        "nuevoRegistro", 
+                        "nuevoRegistro",
+                        $_POST['Cliente']['contrasenia'],
+                        $correo);    
+                // Parael administrador
+                    $enviar->enaviar(
+                        array(Yii::app()->params['adminEmail'], Yii::app()->name), 
+                        array(Yii::app()->params['adminEmail'], "Administrador"), 
+                        "nuevoRegistro", 
+                        "nuevoRegistro",
+                        null,
+                        $correo);    
+                        
+                        
                         if($model->save())
 				$this->redirect(array('registro'));
             } else {
@@ -198,6 +222,78 @@ class SiteController extends Controller {
         }
 
         $this->render('contacto');
+    }
+    
+    public function actionOlvideContrasenia() {
+        if (Yii::app()->user->isGuest) {
+            $this->layout = 'olvideContrasenia';
+        } else {
+            //verificando si el usuario no es un cliente
+            $sql = "SELECT COUNT(*)FROM usuario_rol where idrol=4 and idusuario=" . Yii::app()->user->getId();
+            if (Yii::app()->db->createCommand($sql)->queryScalar() > 0) {
+                $sql = "SELECT COUNT(*)FROM usuario_rol where idusuario=" . Yii::app()->user->getId();
+                if (Yii::app()->db->createCommand($sql)->queryScalar() > 1) {
+                    //es solo un cliente
+                    $this->layout = 'olvideContrasenia';
+                } else {
+                    //aparte de ser cliente es un trabajador
+                    $this->layout = 'olvideContrasenia';
+                }
+            } else {
+                //es solo un trabajador
+                $this->layout = 'columnSistema';
+            }
+        }
+        //generaContraseña
+        $randomText = $this->randomText(7);
+        
+        /*
+         * Envío de correo
+         */
+        if(isset($_POST['Olvide']['correo'])) {
+            $correo = $_POST['Olvide']['correo'];
+            $existeUsuario = "select idusuario from usuario where email ='$correo'";
+            
+            $admin = "select email from usuario where idusuario=1";
+            $emailAdmin = Yii::app()->db->createCommand($admin)->queryAll();
+            
+            $idUsuario = Yii::app()->db->createCommand($existeUsuario)->queryAll();
+            if ($idUsuario > 0) {
+//                $update = "UPDATE usuario SET password='$randomText' WHERE email='$correo'";
+//                $rows = Yii::app()->db->createCommand($update)->queryAll();
+                $enviar = new EnvioEmail();
+                /*
+                 * Obtengo datos del admin
+                 */
+                $user = Usuario::model()->findByPk($idUsuario);
+                $user->email = $correo;
+                $user->password = $randomText;
+                $user->update();
+                
+                $enviar->enaviar(
+                        array(Yii::app()->params['adminEmail'], Yii::app()->name), 
+                        array(	"jmillergomezs@gmail.com", $user->email), 
+                        "olvideContrasenia", 
+                        "olvideContrasenia",
+                        $randomText,
+                        $correo);
+                echo '<script>alert("Revise su correo por favor")</script>';
+            } else {
+                echo '<script>alert("El correo ingresado no se encuentra registrado")</script>';
+            }
+//            print_r($emailAdmin);
+        }
+//        $subject = "olvideContrasenia";
+        $this->render('olvideCOntrasenia');
+    }
+    
+    function randomText($length) { 
+        $key = "";
+        $pattern = "1234567890abcdefghijklmnopqrstuvwxyz"; 
+        for($i = 0; $i < $length; $i++) { 
+            $key .= $pattern{rand(0, 35)}; 
+        } 
+        return $key; 
     }
 
 }

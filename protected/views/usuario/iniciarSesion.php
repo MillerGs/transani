@@ -97,7 +97,7 @@ $form = $this->beginWidget('CActiveForm', array(
         </td>
     </tr>
     <tr>
-        <td colspan="2"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/usuario/recuperarContrasenia/">Recuperar mi contrase&ntilde;a</a></td>
+        <td colspan="2"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/Site/olvideContrasenia/">Recuperar mi contrase&ntilde;a</a></td>
     </tr>
     <tr>
         <td colspan="2">&nbsp;</td>
