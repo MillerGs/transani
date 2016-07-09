@@ -12,10 +12,10 @@
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
           <!--[if lt IE 9]><script src="js/modernizr.custom.js"></script><![endif]-->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/45f3164a/bootstrap/css/bootstrap.min.css" />
-        
+
         <script src="http://www.transani.esy.es/<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.flexslider-min.js"></script>
         <script src="http://www.transani.esy.es/<?php echo Yii::app()->request->baseUrl; ?>/js/functions.js"></script>
-        
+
         <?php
         $var1 = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.ComponenteJQ'));
         Yii::app()->clientScript->registerScriptFile($var1 . '/scripts/jquery-1.11.1.min.js');
@@ -35,7 +35,6 @@
 if (!Yii::app()->user->isGuest) {
     ?>
                     $("#jqxBtnIniciarSesion").css("visibility", "hidden");
-                    $("#jqxBtnIniciarSesion2").css("visibility", "hidden");
 
                     $("#jqxBtnSalirSesion").jqxButton({width: '50', theme: 'metrodark'});
                     $("#jqxBtnSalirSesion").on('click', function () {
@@ -54,18 +53,13 @@ if (!Yii::app()->user->isGuest) {
                     $("#jqxBtnVerPerfil").css("visibility", "hidden");
 
                     $("#jqxBtnIniciarSesion").jqxButton({width: '120', theme: 'metrodark'});
-                    $("#jqxBtnIniciarSesion2").jqxButton({width: '120'});
                     $("#jqxBtnIniciarSesion").on('click', function () {
-                        fn_IniciarSesion();
-                    });
-                    $("#jqxBtnIniciarSesion2").on('click', function () {
                         fn_IniciarSesion();
                     });
     <?php
 }
 ?>
                 var offset = $("#jqxBtnIniciarSesion").offset();
-                var offset = $("#jqxBtnIniciarSesion2").offset();
                 $("#popupIniciarSesion").jqxWindow({theme: "ui-smoothness",
                     position: {x: parseInt(offset.left) - 155, y: parseInt(offset.top) + 30},
                     animationType: 'slide',
@@ -95,7 +89,7 @@ if (!Yii::app()->user->isGuest) {
                         $("#popupIniciarSesion").on('open', function () {
                             fn_limpiarFormSesion();
                         });
-                        $("#popupIniciarSesion").jqxWindow({height: 170, width:280});
+                        $("#popupIniciarSesion").jqxWindow({height: 170, width: 280});
                         $("#popupIniciarSesion").jqxWindow('open');
                     },
                     error: function (xhr) {
@@ -183,8 +177,8 @@ if (!Yii::app()->user->isGuest) {
                     <!-- header -->
                     <header id="header">
                         <!--<h1 id="logo"><a href="#">Curve</a></h1>-->
-                        <img class="img-responsive" style="width: 330px" src="<?php  echo Yii::app()->request->baseUrl ?>/images/banner.png">; 
-                            
+                        <img class="img-responsive" style="width: 330px" src="<?php echo Yii::app()->request->baseUrl ?>/images/banner.png">; 
+
                         <!-- search -->
                         <div class="search">
                             <form method="post" action="#">
@@ -268,85 +262,48 @@ if (!Yii::app()->user->isGuest) {
                     <!-- end of navigation -->
                     <!-- Formulario -->
                     <div class="row">
-                        <div class="form">
-
-<form id="cliente-form" action="/transani/index.php/Site/registro" method="post">
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
-
-
-	
-	<div class="row">
-		<label for="Cliente_nombres" class="required">Nombres <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[nombres]" id="Cliente_nombres" type="text">			</div>
-	<div class="row">
-		<label for="Cliente_correo" class="required">Correo <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[correo]" id="Cliente_correo" type="email">			</div>
-	<div class="row">
-		<label for="Cliente_contrasenia" class="required">Contrasenia <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[contrasenia]" id="Cliente_contrasenia" type="password">			</div>
-
-	<div class="row">
-		<label for="Cliente_tipodoc">Tipo doc.</label> 
-		<select name="Cliente[tipodoc]" id="Cliente_tipodoc">
-<option value="1">DNI</option>
-<option value="2">Pasaporte</option>
-</select>			</div>
-	<div class="row">
-		<label for="Cliente_nrodoc">N° Doc.</label>		<input size="20" maxlength="20" onkeypress="return checkIt(event)" name="Cliente[nrodoc]" id="Cliente_nrodoc" type="text">			</div>
-
-	<div class="row">
-		<label for="Cliente_edad">Edad</label>		<input name="Cliente[edad]" id="Cliente_edad" type="text">			</div>
-
-
-
-	<div class="row buttons">
-		<input type="submit" name="yt0" value="Crear">	</div>
-
-</form>
-</div>
-                        <table style="width: 90%; margin: 10px 30px;">
+                        <table width="100%" border="0">
                             <tr>
+                                <td>&nbsp;</td>
                                 <td>
-                                    <form action="#" method="post">
-                                    <table>
-                                        <tr>
-                                            <td colspan="2"><h3>Formulario de contacto</h3></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nombre <span style="color:red">*</span></td>
-                                            <td><input type="text" name="nombre" id="nombre" size="25" required/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Correo <span style="color:red">*</span></td>
-                                            <td><input type="email" name="correo" id="correo" size="25" required/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Contrase&ntilde;a <span style="color:red">*</span></td>
-                                            <td><input type="password" name="asunto" id="asunto" size="25" required/></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <table style="width: 100%">
-                                                    <tr>
-                                                        <td><button class="btn btn-info" type="reset">Cancelar</button></td>
-                                                        <td><button class="btn btn-success" type="submit">Enviar</button></td>
-                                                    </tr>
-                                                    <tr><td colspan="2">&nbsp;</td></tr>
-                                                    <tr>
-                                                        <td colspan="2"><a id="jqxBtnIniciarSesion2">¿Ya estas registrado?</a></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    </form>
+                                    <div style="margin-left: 120px; margin-top: 50px">
+                                        <style>.rq{color:red;}</style>
+                                        <form id="cliente-form" action="/transani/index.php/Site/registro" method="post">
+                                            <p class="note">Campos con <span class="required rq">*</span> son obligatorios.</p>
+                                            <div class="row">
+                                                <label for="Cliente_nombres" class="required">Nombres <span class="required rq">*</span></label>		<input size="60" maxlength="200" name="Cliente[nombres]" id="Cliente_nombres" type="text">			</div>
+                                            <div class="row">
+                                                <label for="Cliente_correo" class="required">Correo <span class="required rq">*</span></label>		<input size="60" maxlength="200" name="Cliente[correo]" id="Cliente_correo" type="email">			</div>
+                                            <div class="row">
+                                                <label for="Cliente_contrasenia" class="required">Contrasenia <span class="required rq">*</span></label>		<input size="60" maxlength="200" name="Cliente[contrasenia]" id="Cliente_contrasenia" type="password">			</div>
+
+                                            <div class="row">
+                                                <label for="Cliente_tipodoc">Tipo doc.</label> 
+                                                <select name="Cliente[tipodoc]" id="Cliente_tipodoc">
+                                                    <option value="1">DNI</option>
+                                                    <option value="2">Pasaporte</option>
+                                                </select>			</div>
+                                            <div class="row">
+                                                <label for="Cliente_nrodoc">N° Doc.</label>		<input size="20" maxlength="20" onkeypress="return checkIt(event)" name="Cliente[nrodoc]" id="Cliente_nrodoc" type="text">			</div>
+
+                                            <div class="row">
+                                                <label for="Cliente_edad">Edad</label>		<input name="Cliente[edad]" id="Cliente_edad" type="text">			</div>
+
+
+
+                                            <div class="row buttons">
+                                                <input type="submit" class="btn btn-success" name="yt0" value="Crear">	</div>
+
+                                        </form>
+                                    </div>
                                 </td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
                                 <td>
-                                    <iframe width="560" height="315" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?layer=c&panoid=uMuwKYL9b-D7d43sSspf2A&ie=UTF8&source=embed&output=svembed&cbp=13%2C312.67%2C%2C0%2C6.760000000000005"></iframe><br /><small><a href="https://www.google.com.pe/maps/@-8.1295397,-79.0431137,3a,75y,312.67h,83.24t/data=!3m6!1e1!3m4!1suMuwKYL9b-D7d43sSspf2A!2e0!7i13312!8i6656!6m1!1e1?hl=es">View Larger Map</a></small>
+                            <center>
+                                <iframe width="450" height="315" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?layer=c&panoid=uMuwKYL9b-D7d43sSspf2A&ie=UTF8&source=embed&output=svembed&cbp=13%2C312.67%2C%2C0%2C6.760000000000005"></iframe><br /><small><a href="https://www.google.com.pe/maps/@-8.1295397,-79.0431137,3a,75y,312.67h,83.24t/data=!3m6!1e1!3m4!1suMuwKYL9b-D7d43sSspf2A!2e0!7i13312!8i6656!6m1!1e1?hl=es">View Larger Map</a></small>
+                            </center>
                                 </td>
                             </tr>
                         </table>
-                        
                     </div>
                     <!--end fo Formulario -->
                     <div class="socials">
