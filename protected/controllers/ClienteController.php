@@ -105,8 +105,8 @@ class ClienteController extends Controller
                         print_r($dataPersona);
                         print_r($dataUsuario);
                         print_r($dataUsuarioRol);
-                        if($model->save())
-				$this->redirect(array('view','id'=>$model->idcliente));
+//                        if($model->save())
+//				$this->redirect(array('view','id'=>$model->idcliente));
                 } else {
                     echo '<script>alert("el correo ya esta registrado");</script>';
                 }

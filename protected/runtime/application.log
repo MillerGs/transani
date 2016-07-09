@@ -17449,3 +17449,60 @@ Stack trace:
 REQUEST_URI=/transani/index.php/cliente/create
 HTTP_REFERER=http://localhost:81/transani/index.php/cliente/create
 ---
+2016/07/09 20:05:35 [error] [php] Undefined variable: model (C:\xampp\htdocs\transani\protected\views\layouts\xFormularioContacto.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\YII\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#1 C:\xampp\htdocs\YII\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 C:\xampp\htdocs\YII\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(206): CContentDecorator->run()
+#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(300): SiteController->endWidget()
+#5 C:\xampp\htdocs\transani\protected\views\layouts\formularioContacto.php(6): SiteController->endContent()
+#6 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 C:\xampp\htdocs\YII\framework\web\CController.php(784): SiteController->renderFile()
+#9 C:\xampp\htdocs\transani\protected\controllers\SiteController.php(175): SiteController->render()
+#10 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistro()
+#11 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
+#13 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\transani\index.php(13): CWebApplication->run()
+REQUEST_URI=/transani/index.php/site/registro
+in C:\xampp\htdocs\transani\protected\views\layouts\xFormularioContacto.php (210)
+in C:\xampp\htdocs\transani\protected\views\layouts\formularioContacto.php (6)
+in C:\xampp\htdocs\transani\protected\controllers\SiteController.php (175)
+2016/07/09 20:09:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\YII\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\YII\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/arr...')
+#3 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\transani\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/transani/index.php/site/images/arr-ico.png
+HTTP_REFERER=http://localhost:81/transani/index.php/site/login
+---
+2016/07/09 20:13:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in C:\xampp\htdocs\YII\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\YII\framework\web\CController.php(270): CController->missingAction('view')
+#1 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('view')
+#2 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\transani\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/transani/index.php/site/31
+HTTP_REFERER=http://localhost:81/transani/index.php/site/registro
+---
+2016/07/09 20:13:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\YII\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\YII\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/arr...')
+#3 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\transani\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/transani/index.php/site/images/arr-ico.png
+HTTP_REFERER=http://localhost:81/transani/index.php/site/31
+---

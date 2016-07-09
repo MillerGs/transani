@@ -268,6 +268,39 @@ if (!Yii::app()->user->isGuest) {
                     <!-- end of navigation -->
                     <!-- Formulario -->
                     <div class="row">
+                        <div class="form">
+
+<form id="cliente-form" action="/transani/index.php/Site/registro" method="post">
+	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+
+
+	
+	<div class="row">
+		<label for="Cliente_nombres" class="required">Nombres <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[nombres]" id="Cliente_nombres" type="text">			</div>
+	<div class="row">
+		<label for="Cliente_correo" class="required">Correo <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[correo]" id="Cliente_correo" type="email">			</div>
+	<div class="row">
+		<label for="Cliente_contrasenia" class="required">Contrasenia <span class="required">*</span></label>		<input size="60" maxlength="200" name="Cliente[contrasenia]" id="Cliente_contrasenia" type="password">			</div>
+
+	<div class="row">
+		<label for="Cliente_tipodoc">Tipo doc.</label> 
+		<select name="Cliente[tipodoc]" id="Cliente_tipodoc">
+<option value="1">DNI</option>
+<option value="2">Pasaporte</option>
+</select>			</div>
+	<div class="row">
+		<label for="Cliente_nrodoc">N° Doc.</label>		<input size="20" maxlength="20" onkeypress="return checkIt(event)" name="Cliente[nrodoc]" id="Cliente_nrodoc" type="text">			</div>
+
+	<div class="row">
+		<label for="Cliente_edad">Edad</label>		<input name="Cliente[edad]" id="Cliente_edad" type="text">			</div>
+
+
+
+	<div class="row buttons">
+		<input type="submit" name="yt0" value="Crear">	</div>
+
+</form>
+</div>
                         <table style="width: 90%; margin: 10px 30px;">
                             <tr>
                                 <td>
