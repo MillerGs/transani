@@ -250,10 +250,10 @@ if (!Yii::app()->user->isGuest) {
                     <!-- navigation -->
                     <nav id="navigation"> <a href="#" class="nav-btn">INICIO<span class="arr"></span></a>
                         <ul>
-                            <li class="active"><a href="/systransporte/index.php/site/index/">INICIO</a></li>
+                            <li class="active"><a href="/transani/index.php/site/index/">INICIO</a></li>
                             <li><a href="#">NUESTRO SERVICIOS</a></li>
                             <li><a href="#">¿QUIÉNES SOMOS?</a></li>
-                            <li><a href="/systransporte/index.php/site/registro">REGISTRO</a></li>
+                            <li><a href="/transani/index.php/site/registro">REGISTRO</a></li>
                         </ul>
                     </nav>
                     <!-- end of navigation -->
