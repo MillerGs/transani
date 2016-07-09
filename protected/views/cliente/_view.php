@@ -25,8 +25,8 @@
 	<?php echo CHtml::encode($data->tipodoc); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('apellidos')); ?>:</b>
-	<?php echo CHtml::encode($data->apellidos); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('correo')); ?>:</b>
+	<?php echo CHtml::encode($data->correo); ?>
 	<br />
 
 

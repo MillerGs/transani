@@ -46,7 +46,7 @@ $('.search-form form').submit(function(){
 		'nrodoc',
 		'edad',
 		'tipodoc',
-		'apellidos',
+		'correo',
 		array(
 			'class'=>'CButtonColumn',
 		),

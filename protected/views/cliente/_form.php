@@ -26,9 +26,14 @@
 		<?php echo $form->error($model,'nombres'); ?>
 	</div>
 	<div class="row">
-		<?php echo $form->labelEx($model,'apellidos'); ?>
-		<?php echo $form->textField($model,'apellidos',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'apellidos'); ?>
+		<?php echo $form->labelEx($model,'correo'); ?>
+		<?php echo $form->emailField($model,'correo',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->error($model,'correo'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'contrasenia'); ?>
+		<?php echo $form->passwordField($model,'contrasenia',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->error($model,'contrasenia'); ?>
 	</div>
 
 	<div class="row">

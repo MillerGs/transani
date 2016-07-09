@@ -26,6 +26,6 @@ $this->menu=array(
 		'nrodoc',
 		'edad',
 		'tipodoc',
-		'apellidos',
+		'correo',
 	),
 )); ?>

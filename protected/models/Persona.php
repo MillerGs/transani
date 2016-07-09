@@ -36,7 +36,7 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dni, nombres, apellidos, celular, foto', 'required'),
+			array('dni, nombres, idempresa', 'required'),
 			array('idempresa', 'numerical', 'integerOnly'=>true),
 			array('dni', 'length', 'max'=>8),
 			array('nombres, apellidos', 'length', 'max'=>100),

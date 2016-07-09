@@ -9,7 +9,8 @@
  * @property string $nrodoc
  * @property integer $edad
  * @property integer $tipodoc
- * @property string $apellidos
+ * @property string $correo
+ * @property string $contrasenia
  *
  * The followings are the available model relations:
  * @property Boleto[] $boletos
@@ -32,13 +33,13 @@ class Cliente extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombres, nrodoc, edad, tipodoc, apellidos', 'required'),
+			array('nombres, correo, contrasenia', 'required'),
 			array('edad, tipodoc', 'numerical', 'integerOnly'=>true),
-			array('nombres, apellidos', 'length', 'max'=>200),
+			array('nombres, correo', 'length', 'max'=>200),
 			array('nrodoc', 'length', 'max'=>8, 'min'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idcliente, nombres, nrodoc, edad, tipodoc, apellidos', 'safe', 'on'=>'search'),
+			array('idcliente, nombres, nrodoc, edad, tipodoc, correo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +66,7 @@ class Cliente extends CActiveRecord
 			'nrodoc' => 'N° Doc.',
 			'edad' => 'Edad',
 			'tipodoc' => 'Tipo doc.',
-			'apellidos' => 'Apellidos',
+			'correo' => 'Correo',
 		);
 	}
 
@@ -92,7 +93,7 @@ class Cliente extends CActiveRecord
 		$criteria->compare('nrodoc',$this->nrodoc,true);
 		$criteria->compare('edad',$this->edad);
 		$criteria->compare('tipodoc',$this->tipodoc);
-		$criteria->compare('apellidos',$this->apellidos,true);
+		$criteria->compare('correo',$this->correo,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

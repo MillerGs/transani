@@ -63,15 +63,54 @@ class ClienteController extends Controller
 	public function actionCreate()
 	{
 		$model=new Cliente;
+                $modelPersona = new Persona;
+                $modelUsuario = new Usuario;
+                $modelUsuarioRol = new UsuarioRol;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+                if(isset($_POST['Cliente'])){
+                    $correo = $_POST['Cliente']['correo'];
+                    $existeCorreo = "select * from cliente where correo = '$correo'";
+                    $rows = Yii::app()->db->createCommand($existeCorreo)->queryAll();
+                    if($rows == null || empty($rows)) {
+                        $model->attributes=$_POST['Cliente'];
 
-		if(isset($_POST['Cliente']))
-		{
-			$model->attributes=$_POST['Cliente'];
-			if($model->save())
+                        $dataPersona = array(
+                            'dni' => $_POST['Cliente']['nrodoc'],
+                            'nombres' => $_POST['Cliente']['nombres'],
+                            'idempresa' => 1
+                        );
+                        $modelPersona->attributes = $dataPersona;
+//                        $modelPersona->save();
+
+                        $dataUsuario = array(
+                            'email' => $_POST['Cliente']['correo'],
+                            'password' => $_POST['Cliente']['contrasenia'],
+                            'estado' => 1,
+                            'idpersona' => $modelPersona->idpersona,
+                            'idoficina' => 1,
+                        );
+                        $modelUsuario->attributes = $dataUsuario;
+//                        $modelUsuario->save();
+
+                        $dataUsuarioRol = array(
+                            'idusuario' => $modelUsuario->idusuario,
+                            'idrol' => 4,
+                        );
+                        $modelUsuarioRol->attributes = $dataUsuarioRol;
+//                        $modelUsuarioRol->save();
+
+                        print_r($_POST['Cliente']);
+                        print_r($dataPersona);
+                        print_r($dataUsuario);
+                        print_r($dataUsuarioRol);
+                        if($model->save())
 				$this->redirect(array('view','id'=>$model->idcliente));
+                } else {
+                    echo '<script>alert("el correo ya esta registrado");</script>';
+                }
+                        
 		}
 
 		$this->render('create',array(

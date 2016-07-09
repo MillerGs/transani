@@ -7,7 +7,6 @@ $this->pageTitle = Yii::app()->name;
 <?php
 /* @var $this PERSPersonalController */
 /* @var $dataProvider CActiveDataProvider */
-
 $this->breadcrumbs = array(
     'Cuadro Nominativo',
 );
